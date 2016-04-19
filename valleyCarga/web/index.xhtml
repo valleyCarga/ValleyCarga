@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8"/>
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Spirit8 - Digital Agency One Page Template</title>
+        <meta name="description" content="Spirit8 is a Digital agency one page template built based on bootstrap framework. This template is design by Robert Berki and coded by Jenn Pereira. It is simple, mobile responsive, perfect for portfolio and agency websites. Get this for free exclusively at ThemeForces.com"/>
+        <meta name="keywords" content="bootstrap theme, portfolio template, digital agency, onepage, mobile responsive, spirit8, free website, free theme, themeforces themes, themeforces wordpress themes, themeforces bootstrap theme"/>
+        <meta name="author" content="ThemeForces.com"/>
+
+        <!-- Favicons
+        ================================================== -->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png"/>
+        <link href="bootstrap.css" rel="stylesheet"/>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css"  href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css"/>
+
+        <!-- Slider
+        ================================================== -->
+        <link href="css/owl.carousel.css" rel="stylesheet" media="screen"/>
+        <link href="css/owl.theme.css" rel="stylesheet" media="screen"/>
+
+        <!-- Stylesheet
+        ================================================== -->
+        <link rel="stylesheet" type="text/css"  href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'/>
+
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </h:head>
+    <h:body>
+        <!-- Navigation
+        ==========================================-->
+        <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Valley Carga</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#tf-home" class="page-scroll">Inicio</a></li>
+                        <li><a href="#tf-about" class="page-scroll">Iniciar Sesion</a></li>
+                        <li><a href="#tf-works" class="page-scroll">Quienes Somos</a></li>
+                        <li><a href="#tf-services" class="page-scroll">Servicios</a></li>
+
+                        <li><a href="#tf-testimonials" class="page-scroll">Sucursales</a></li>
+                        <li><a href="#tf-contact" class="page-scroll">Contactenos</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!-- Home Page
+        ==========================================-->
+        <div id="tf-home" class="text-center">
+            <div class="overlay">
+                <div class="content">
+                    <h1>Bienvenido a <strong><span class="color">Valley Carga</span></strong></h1>
+                    <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Page
+        ==========================================-->
+        <div id="tf-about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
+                        <div class="about-text">
+                            <div class="section-title">
+                                <h2>iniciar <strong>Sesion</strong></h2>
+                                <hr/>
+                                <div class="clearfix"></div>
+                                <h:form class="form-horizontal">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="doc">Documento</label>  
+                                            <div class="col-md-4">
+                                                <h:inputText class="form-control input-md" p:pattern="[0-9]{8,10}"/>
+                                            </div>
+                                        </div>
+                                        <!-- Password input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="clave">Clave</label>
+                                            <div class="col-md-4">
+                                                <h:inputSecret class="form-control input-md" p:pattern="[0-9,a-z,A-Z]{10,30}"/>
+                                            </div>
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="inicioSes"></label>
+                                            <div class="col-md-6">
+                                                <button name="inicioSes" class="btn btn-warning">Aceptar</button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Registrarse</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Page
+        ==========================================-->
+        <div id="tf-team" class="text-center">
+            <div class="overlay">
+                <div class="container">
+                    <div class="section-title center">
+                        <h2> <strong>Trabajando por tu beneficio.</strong></h2>
+                        <div class="line">
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section
+        ==========================================-->
+        <div id="tf-works" class="text-center">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Quienes <strong>Somos</strong></h2>
+                    <div class="line">
+                        <hr/>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 service">
+                        <h4><strong>Mision</strong></h4>
+                        <p>Es misión de “Valley Carga”, ofrecer soluciones tecnológicas innovadoras, adaptables a las necesidades de nuestros clientes, en Colombia, fomentando su desarrollo y crecimiento, mediante un equipo de profesionales en tecnologías de desarrollo de Software altamente competitivo.</p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 service">
+                        <h4><strong>Vision</strong></h4>
+                        <p>Queremos estar comprometidos con los problemas de nuestros clientes de forma transparente y eficaz para convertirnos en la solución de confianza. En nuestra visión queremos ser una empresa de referencia, que camina con el cambio de la tecnología y la sociedad, dando a conocer las posibilidades de los estándares y tecnologías libres. </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 service">
+                        <h4><strong>Valore Corporativos</strong></h4>
+                        <p>Integridad <br/> Responsabilidad <br/> Disciplina<br/> Honestidad<br/>Respeto<br/>Trabajo en equipo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clients Section
+        ==========================================-->
+        <div id="tf-clients" class="text-center">
+            <div class="overlay">
+                <div class="container">
+
+                    <div class="section-title center">
+                        <h2>Recoriendo tus <strong>Caminos</strong></h2>
+                        <div class="line">
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section
+        ==========================================-->
+        <div id="tf-works">
+            <div id="tf-services" class="text-center">
+                <div class="container">
+                    <div class="section-title center">
+                        <h2>Nuestros <strong>Servicios</strong></h2>
+                        <div class="line">
+                            <hr/>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="space"></div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 service">
+                            <i class="fa fa-briefcase"></i>
+                            <h4><strong>Transporte terrestre nacional</strong></h4>
+                            <p>Disponemos de servicio diario de paquetería y cargas completas a y desde Madrid desde y a cualquier ciudad española, incluyendo las Islas Baleares y Canarias.</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 service">
+                            <i class="fa fa-road"></i>
+                            <h4><strong>Transporte Terrestre de Carga Liquida</strong></h4>
+                            <p>Trasnportamos todo tipo de Químicos, Ácidos, Corrosivos, Sustancias Peligrosas y/o Controladas, Hidrocarburos.</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 service">
+                            <i class="fa fa-truck"></i>
+                            <h4><strong>Transporte Terrestre de Carga Masiva</strong></h4>
+                            <p>Carga contenerizada, suelta sin ninguna característica especial en su forma..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section
+        ==========================================-->
+        <div id="tf-testimonials" class="text-center">
+            <div class="overlay">
+                <div class="container">
+                    <div class="section-title center">
+                        <h2><strong>Sucursales </strong> Principales</h2>
+                        <div class="line">
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div id="testimonial" class="owl-carousel owl-theme">
+                                <div class="item">
+                                    <h5>Bogota</h5>
+                                    <p>Sede Quinta Camacho <br/> Calle 72 # 14-10 <br/>Tel: 5220014 <br/>valleycarga@gmail.com</p>
+                                </div>
+
+                                <div class="item">
+                                    <h5>Medellin</h5>
+                                    <p>Sede Parque las nieves <br/> Cr 52 # 21-88 sur  <br/>Tel: 9985512 <br/>valleycargalasnieves@gmail.com</p>
+                                </div>
+
+                                <div class="item">
+                                    <h5>Cali</h5>
+                                    <p>Sede El centro <br/>Cll 102 # 44-11 <br/>Tel: 3355652 <br/>valleycargacentro@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section
+        ==========================================-->
+        <div id="tf-contact" class="text-center">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <div class="section-title center">
+                            <h2><strong>Contactenos</strong></h2>
+                            <div class="line">
+                                <hr/>
+                            </div>
+                        </div>
+                        <h:form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:outputLabel>Nombre</h:outputLabel>
+                                        <h:inputText required="true" class="form-control" p:placeholder="ejemplo" value="#{usuarioControlador.fcNombre}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:outputLabel>Correo</h:outputLabel>
+                                        <h:inputText p:type="email" required="true" class="form-control" p:placeholder="correo@ejemplo.com" value="#{usuarioControlador.fcCorreo}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:outputLabel>Nombre de empresa</h:outputLabel>
+                                        <h:inputText required="true" class="form-control" p:placeholder="ejemplo" value="#{usuarioControlador.fcEmpresa}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h:outputLabel>Telefono contecto</h:outputLabel>
+                                        <h:inputText required="true" class="form-control" p:placeholder="789765" value="#{usuarioControlador.fcTelefono}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel>Mensaje</h:outputLabel>
+                                <h:inputTextarea required="true" class="form-control" value="#{usuarioControlador.fcMensaje}"/>
+                            </div>
+                            <div class="form-group">
+                                <c:if test="#{usuarioControlador.estado == 1}">
+                                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                        </button>
+                                        <strong>Mensaje enviado!</strong> Mensaje enviado exitosamente.
+                                    </div>
+                                </c:if>
+
+                                <c:if test="#{usuarioControlador.estado == 2}">
+                                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                        </button>
+                                        <strong>Error fatal!</strong> Intentelo mas tarde.
+                                    </div>
+                                </c:if>
+
+                                
+                            </div>
+
+                            #{usuarioControlador.borrarEstado()}
+
+                            <h:commandButton value="Enviar" class="btn btn-warning" action="#{usuarioControlador.enviarMensajeContacto()}"/>
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav id="footer">
+            <div class="container">
+                <div class="pull-left fnav">
+                    <p></p>
+                </div>
+                <div class="pull-right fnav">
+                    <ul class="footer-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--modal iniciar sesion-->
+        <!--========================================================-->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Registro</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <h:form>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <h:outputLabel>Documento</h:outputLabel>
+                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{8,10}"/>
+
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Nombre</h:outputLabel>
+                                        <h:inputText class="form-control input-md"/>
+
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Apellidos</h:outputLabel>
+                                        <h:inputText class="form-control input-md"/>
+
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Telefono</h:outputLabel>
+                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{7,10}"/>
+
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Direccion</h:outputLabel>
+                                        <h:inputText class="form-control input-md"/>
+
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Correo</h:outputLabel>
+                                        <h:inputText class="form-control input-md" p:pattern="[a-z,@.]{3,30}"/>
+                                    </div>
+                                    <div class="row">
+                                        <h:outputLabel>Contraseña</h:outputLabel>
+                                        <h:inputSecret class="form-control input-md" p:pattern="[0-9,a-z,A-Z]{10,30}"/>
+                                        <label>La clave debe contener minimo 10 caracteres y maximo 30, debe tener numeros y letras en mayuscula y minuscula.</label>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="modal-footer">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class=" input-field">
+                                                        <h:commandButton class="btn waves-effect waves-light btn btn-warning" value="Registrarse"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class=" input-field">
+                                                        <h:commandButton class="btn waves-effect waves-light btn btn-warning" value="Cancelar"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </h:form>
+                        </div>
+                        <div class="col-md-1"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="jquery.js"></script>
+        <script src="bootstrap-modal.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="js/jquery.isotope.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <!-- Javascripts
+        ================================================== -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </h:body>
+</html>
