@@ -64,6 +64,8 @@ public class Ciudades implements Serializable {
     @JoinColumn(name = "departamentoID", referencedColumnName = "departamentoID")
     @ManyToOne(optional = false)
     private Departamentos departamentoID;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadID")
+    private Collection<Usuarios> usuariosCollection;
 
     public Ciudades() {
     }
@@ -153,6 +155,15 @@ public class Ciudades implements Serializable {
 
     public void setDepartamentoID(Departamentos departamentoID) {
         this.departamentoID = departamentoID;
+    }
+
+    @XmlTransient
+    public Collection<Usuarios> getUsuariosCollection() {
+        return usuariosCollection;
+    }
+
+    public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
+        this.usuariosCollection = usuariosCollection;
     }
 
     @Override

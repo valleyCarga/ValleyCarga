@@ -3,7 +3,8 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <!-- Basic Page Needs
         ================================================== -->
@@ -368,45 +369,72 @@
                         <h4 class="modal-title">Registro</h4>
                     </div>
                     <div class="modal-body">
-
                         <div class="row">
                             <h:form>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-10">
                                     <div class="row">
-                                        <h:outputLabel>Documento</h:outputLabel>
-                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{8,10}"/>
-
+                                        <h:outputLabel>Tipo documento</h:outputLabel>
+                                        <h:selectOneMenu value="#{usuarioControlador.tipoDocumento}">
+                                            <f:selectItem itemValue="#{usuarioControlador.tipoDocumento}" itemLabel="CC" />
+                                            <f:selectItem itemValue="#{usuarioControlador.tipoDocumento}" itemLabel="TI" />	   							
+                                        </h:selectOneMenu>
                                     </div>
+
+                                    <div class="row">
+                                        <h:outputLabel>Docomento</h:outputLabel>
+                                        <h:inputText class="form-control input-md" value="#{usuarioControlador.cedula}"/>
+                                    </div>
+
                                     <div class="row">
                                         <h:outputLabel>Nombre</h:outputLabel>
-                                        <h:inputText class="form-control input-md"/>
-
+                                        <h:inputText class="form-control input-md" value="#{usuarioControlador.fcNombre}"/>
                                     </div>
+
                                     <div class="row">
                                         <h:outputLabel>Apellidos</h:outputLabel>
-                                        <h:inputText class="form-control input-md"/>
+                                        <h:inputText class="form-control input-md" value="#{usuarioControlador.apellido}"/>
 
                                     </div>
+
                                     <div class="row">
-                                        <h:outputLabel>Telefono</h:outputLabel>
-                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{7,10}"/>
-
+                                        <h:outputLabel>Telefono fijo</h:outputLabel>
+                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{7,10}" value="#{usuarioControlador.fcTelefono}"/>
                                     </div>
+
+                                    <div class="row">
+                                        <h:outputLabel>Telefono celular</h:outputLabel>
+                                        <h:inputText class="form-control input-md" p:pattern="[0-9]{7,10}" value="#{usuarioControlador.celular}"/>
+                                    </div>
+
                                     <div class="row">
                                         <h:outputLabel>Direccion</h:outputLabel>
-                                        <h:inputText class="form-control input-md"/>
-
+                                        <h:inputText class="form-control input-md" value="#{usuarioControlador.direccion}"/>
                                     </div>
+
+                                    <div class="row">
+                                        <h:outputLabel>Fecha de nacimiento</h:outputLabel>
+                                        <h:inputText p:type="date" class="form-control input-md" p:pattern="[0-9]{7,10}" value="#{usuarioControlador.fechaNacimiento}"/>
+                                    </div>
+
                                     <div class="row">
                                         <h:outputLabel>Correo</h:outputLabel>
-                                        <h:inputText class="form-control input-md" p:pattern="[a-z,@.]{3,30}"/>
+                                        <h:inputText class="form-control input-md"  value="#{usuarioControlador.fcCorreo}"/>
                                     </div>
+
+                                    <div class="row">
+                                        <h:outputLabel>Ciudad</h:outputLabel>
+                                        <h:selectOneMenu value="#{usuarioControlador.frCiudad}">
+                                            <c:forEach items="#{ciudadesControlador.ciudadesOrdenadas()}" var="ciudades">
+                                                <f:selectItem itemLabel="#{ciudades.nombre}" itemValue="#{ciudades.ciudadID}"/>
+                                            </c:forEach>
+                                        </h:selectOneMenu>
+                                    </div>
+
                                     <div class="row">
                                         <h:outputLabel>Contraseña</h:outputLabel>
-                                        <h:inputSecret class="form-control input-md" p:pattern="[0-9,a-z,A-Z]{10,30}"/>
+                                        <h:inputSecret class="form-control input-md" value="#{usuarioControlador.clave}"/>
                                         <label>La clave debe contener minimo 10 caracteres y maximo 30, debe tener numeros y letras en mayuscula y minuscula.</label>
-
                                     </div>
 
                                     <div class="row">
@@ -414,7 +442,7 @@
                                             <div class="row">
                                                 <div class="col-md-5">
                                                     <div class=" input-field">
-                                                        <h:commandButton class="btn waves-effect waves-light btn btn-warning" value="Registrarse"/>
+                                                        <h:commandButton class="btn waves-effect waves-light btn btn-warning" value="Registrarse" action="#{usuarioControlador.registrarUsuario()}"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">

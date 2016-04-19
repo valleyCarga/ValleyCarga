@@ -5,10 +5,15 @@
  */
 package edu.valleyCarga.controlador;
 
+import edu.valleyCarga.entity.Ciudades;
+import edu.valleyCarga.entity.Usuarios;
 import edu.valleyCarga.modelo.Mailer;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.ejb.EJB;
 
 /**
  *
@@ -18,9 +23,18 @@ import java.io.Serializable;
 @SessionScoped
 public class usuarioControlador implements Serializable {
 
-    /**
-     * Creates a new instance of usuarioControlador
-     */
+    @EJB
+    private edu.valleyCarga.facade.UsuariosFacade usuariosFacade;
+
+    private Long cedula;
+    private String tipoDocumento;
+    private String apellido;
+    private String direccion;
+    private String celular;
+    private Date fechaNacimiento;
+    private String clave;
+    private String frCiudad;
+
     private String fcNombre;
     private String fcCorreo;
     private String fcEmpresa;
@@ -101,6 +115,109 @@ public class usuarioControlador implements Serializable {
 
     public void borrarEstado() {
         estado = 0;
+    }
+
+    public Long getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Long cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public edu.valleyCarga.facade.UsuariosFacade getUsuariosFacade() {
+        return usuariosFacade;
+    }
+
+    public void setUsuariosFacade(edu.valleyCarga.facade.UsuariosFacade usuariosFacade) {
+        this.usuariosFacade = usuariosFacade;
+    }
+
+    public String registrarUsuario() {
+        //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
+        Usuarios objUsuario = new Usuarios();
+
+        try {
+            objUsuario.setCedula(cedula);
+            objUsuario.setTipoDocumento(tipoDocumento);
+            objUsuario.setNombre(fcNombre);
+            objUsuario.setApellido(apellido);
+            objUsuario.setDireccion(direccion);
+            objUsuario.setTelefono(fcTelefono);
+            objUsuario.setCelular(celular);
+            objUsuario.setFechaNacimiento(fechaNacimiento);
+            objUsuario.setCorreo(fcCorreo);
+
+            Ciudades miCiudad = new Ciudades();
+            miCiudad.setCiudadID(Integer.parseInt(frCiudad));
+
+            objUsuario.setCiudadID(miCiudad);
+            objUsuario.setClave(clave);
+
+            usuariosFacade.create(objUsuario);
+
+            estado = 1;
+        } catch (Exception e) {
+            estado = 2;
+        }
+
+        return "aaa";
+    }
+
+    public String getFrCiudad() {
+        return frCiudad;
+    }
+
+    public void setFrCiudad(String frCiudad) {
+        this.frCiudad = frCiudad;
     }
 
 }

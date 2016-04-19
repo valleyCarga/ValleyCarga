@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -45,8 +46,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuarios.findByCelular", query = "SELECT u FROM Usuarios u WHERE u.celular = :celular"),
     @NamedQuery(name = "Usuarios.findByFechaNacimiento", query = "SELECT u FROM Usuarios u WHERE u.fechaNacimiento = :fechaNacimiento"),
     @NamedQuery(name = "Usuarios.findByCorreo", query = "SELECT u FROM Usuarios u WHERE u.correo = :correo"),
-    @NamedQuery(name = "Usuarios.findByClave", query = "SELECT u FROM Usuarios u WHERE u.clave = :clave"),
-    @NamedQuery(name = "Usuarios.findByCiudadID", query = "SELECT u FROM Usuarios u WHERE u.ciudadID = :ciudadID")})
+    @NamedQuery(name = "Usuarios.findByClave", query = "SELECT u FROM Usuarios u WHERE u.clave = :clave")})
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -100,10 +100,6 @@ public class Usuarios implements Serializable {
     @Size(min = 1, max = 35)
     @Column(name = "clave")
     private String clave;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ciudadID")
-    private int ciudadID;
     @JoinTable(name = "perfil_usuarios", joinColumns = {
         @JoinColumn(name = "cedula", referencedColumnName = "cedula")}, inverseJoinColumns = {
         @JoinColumn(name = "perfilID", referencedColumnName = "perfilID")})
@@ -130,6 +126,9 @@ public class Usuarios implements Serializable {
     private Collection<HistorialVehiculos> historialVehiculosCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioA")
     private Collection<HistorialPaquete> historialPaqueteCollection;
+    @JoinColumn(name = "ciudadID", referencedColumnName = "ciudadID")
+    @ManyToOne(optional = false)
+    private Ciudades ciudadID;
 
     public Usuarios() {
     }
@@ -138,7 +137,7 @@ public class Usuarios implements Serializable {
         this.cedula = cedula;
     }
 
-    public Usuarios(Long cedula, String tipoDocumento, String nombre, String apellido, String direccion, String telefono, String celular, Date fechaNacimiento, String correo, String clave, int ciudadID) {
+    public Usuarios(Long cedula, String tipoDocumento, String nombre, String apellido, String direccion, String telefono, String celular, Date fechaNacimiento, String correo, String clave) {
         this.cedula = cedula;
         this.tipoDocumento = tipoDocumento;
         this.nombre = nombre;
@@ -149,7 +148,6 @@ public class Usuarios implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
         this.correo = correo;
         this.clave = clave;
-        this.ciudadID = ciudadID;
     }
 
     public Long getCedula() {
@@ -230,14 +228,6 @@ public class Usuarios implements Serializable {
 
     public void setClave(String clave) {
         this.clave = clave;
-    }
-
-    public int getCiudadID() {
-        return ciudadID;
-    }
-
-    public void setCiudadID(int ciudadID) {
-        this.ciudadID = ciudadID;
     }
 
     @XmlTransient
@@ -328,6 +318,14 @@ public class Usuarios implements Serializable {
 
     public void setHistorialPaqueteCollection(Collection<HistorialPaquete> historialPaqueteCollection) {
         this.historialPaqueteCollection = historialPaqueteCollection;
+    }
+
+    public Ciudades getCiudadID() {
+        return ciudadID;
+    }
+
+    public void setCiudadID(Ciudades ciudadID) {
+        this.ciudadID = ciudadID;
     }
 
     @Override
