@@ -247,20 +247,14 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div id="testimonial" class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <h5>Bogota</h5>
-                                    <p>Sede Quinta Camacho <br/> Calle 72 # 14-10 <br/>Tel: 5220014 <br/>valleycarga@gmail.com</p>
-                                </div>
 
-                                <div class="item">
-                                    <h5>Medellin</h5>
-                                    <p>Sede Parque las nieves <br/> Cr 52 # 21-88 sur  <br/>Tel: 9985512 <br/>valleycargalasnieves@gmail.com</p>
-                                </div>
+                                <c:forEach items="#{sucursalesControlador.todasSucursales()}" var="lista">
+                                    <div class="item">
+                                        <h5>#{lista.ciudadID.nombre}</h5>
+                                        <p>#{lista.barrio} <br/> #{lista.direccion} <br/>Tel: #{lista.telefono} <br/> #{lista.correo}</p>
+                                    </div>
+                                </c:forEach>
 
-                                <div class="item">
-                                    <h5>Cali</h5>
-                                    <p>Sede El centro <br/>Cll 102 # 44-11 <br/>Tel: 3355652 <br/>valleycargacentro@gmail.com</p>
-                                </div>
                             </div>
                         </div>
                     </div>

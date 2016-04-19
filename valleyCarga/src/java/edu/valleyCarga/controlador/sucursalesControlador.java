@@ -5,9 +5,13 @@
  */
 package edu.valleyCarga.controlador;
 
+import edu.valleyCarga.entity.Sucursales;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,11 +21,17 @@ import java.io.Serializable;
 @SessionScoped
 public class sucursalesControlador implements Serializable {
 
+    @EJB
+    private edu.valleyCarga.facade.SucursalesFacade sucursalesFacade;
     
     /**
      * Creates a new instance of sucursalesControlador
      */
     public sucursalesControlador() {
+    }
+    
+    public List<Sucursales> todasSucursales(){
+        return sucursalesFacade.sucursalesOrdenadas();
     }
     
 }
