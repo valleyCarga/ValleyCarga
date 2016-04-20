@@ -134,7 +134,7 @@ public class Mensajes implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Mensajes[ mensajeID=" + mensajeID + " ]";
+        return "edu.valleyCarga.controlador.Mensajes[ mensajeID=" + mensajeID + " ]";
     }
     
 }

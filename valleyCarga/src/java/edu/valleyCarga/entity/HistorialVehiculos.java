@@ -149,7 +149,7 @@ public class HistorialVehiculos implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.HistorialVehiculos[ historialvID=" + historialvID + " ]";
+        return "edu.valleyCarga.controlador.HistorialVehiculos[ historialvID=" + historialvID + " ]";
     }
     
 }

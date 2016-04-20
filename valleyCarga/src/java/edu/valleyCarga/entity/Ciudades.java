@@ -64,8 +64,6 @@ public class Ciudades implements Serializable {
     @JoinColumn(name = "departamentoID", referencedColumnName = "departamentoID")
     @ManyToOne(optional = false)
     private Departamentos departamentoID;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadID")
-    private Collection<Usuarios> usuariosCollection;
 
     public Ciudades() {
     }
@@ -157,15 +155,6 @@ public class Ciudades implements Serializable {
         this.departamentoID = departamentoID;
     }
 
-    @XmlTransient
-    public Collection<Usuarios> getUsuariosCollection() {
-        return usuariosCollection;
-    }
-
-    public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
-        this.usuariosCollection = usuariosCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -188,7 +177,7 @@ public class Ciudades implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Ciudades[ ciudadID=" + ciudadID + " ]";
+        return "edu.valleyCarga.controlador.Ciudades[ ciudadID=" + ciudadID + " ]";
     }
     
 }

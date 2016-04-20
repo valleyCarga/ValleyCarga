@@ -176,7 +176,7 @@ public class Tarifas implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Tarifas[ tarifaID=" + tarifaID + " ]";
+        return "edu.valleyCarga.controlador.Tarifas[ tarifaID=" + tarifaID + " ]";
     }
     
 }

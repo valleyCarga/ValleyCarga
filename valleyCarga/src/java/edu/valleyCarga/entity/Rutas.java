@@ -133,7 +133,7 @@ public class Rutas implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Rutas[ rutaID=" + rutaID + " ]";
+        return "edu.valleyCarga.controlador.Rutas[ rutaID=" + rutaID + " ]";
     }
     
 }

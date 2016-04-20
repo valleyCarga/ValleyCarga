@@ -4,16 +4,21 @@
  * and open the template in the editor.
  */
 package edu.valleyCarga.controlador;
-
-import edu.valleyCarga.entity.Ciudades;
+import com.sun.net.httpserver.HttpServer;
 import edu.valleyCarga.entity.Usuarios;
+import edu.valleyCarga.entity.Ciudades;
 import edu.valleyCarga.modelo.Mailer;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -26,7 +31,7 @@ public class usuarioControlador implements Serializable {
     @EJB
     private edu.valleyCarga.facade.UsuariosFacade usuariosFacade;
 
-    private Long cedula;
+    private int cedula;
     private String tipoDocumento;
     private String apellido;
     private String direccion;
@@ -117,11 +122,11 @@ public class usuarioControlador implements Serializable {
         estado = 0;
     }
 
-    public Long getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(Long cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 
@@ -186,7 +191,6 @@ public class usuarioControlador implements Serializable {
         Usuarios objUsuario = new Usuarios();
 
         try {
-            objUsuario.setCedula(cedula);
             objUsuario.setTipoDocumento(tipoDocumento);
             objUsuario.setNombre(fcNombre);
             objUsuario.setApellido(apellido);
@@ -199,7 +203,7 @@ public class usuarioControlador implements Serializable {
             Ciudades miCiudad = new Ciudades();
             miCiudad.setCiudadID(Integer.parseInt(frCiudad));
 
-            objUsuario.setCiudadID(miCiudad);
+            
             objUsuario.setClave(clave);
 
             usuariosFacade.create(objUsuario);
@@ -219,5 +223,17 @@ public class usuarioControlador implements Serializable {
     public void setFrCiudad(String frCiudad) {
         this.frCiudad = frCiudad;
     }
-
+    public String iniciarsesion(){
+        List<Usuarios> logueado = usuariosFacade.validarUsuario(cedula, clave);  
+        if (logueado.isEmpty()) {
+            FacesContext facesContexs = FacesContext.getCurrentInstance();
+            ExternalContext externalContext = facesContexs.getExternalContext();
+            HttpServletRequest miSession = (HttpServletRequest) facesContexs.getExternalContext().getRequest();
+            miSession.setAttribute("usuarioL", logueado);
+            estado=3;
+        }else{
+            estado=4;
+        }
+        return "envios";
+    }
 }

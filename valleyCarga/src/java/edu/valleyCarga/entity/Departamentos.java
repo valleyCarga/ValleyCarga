@@ -109,7 +109,7 @@ public class Departamentos implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Departamentos[ departamentoID=" + departamentoID + " ]";
+        return "edu.valleyCarga.controlador.Departamentos[ departamentoID=" + departamentoID + " ]";
     }
     
 }

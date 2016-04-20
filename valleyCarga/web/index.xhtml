@@ -107,23 +107,23 @@
                                 <h:form class="form-horizontal">
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label" for="doc">Documento</label>  
+                                            <label  class="col-md-4 control-label" for="doc">Documento</label>  
                                             <div class="col-md-4">
-                                                <h:inputText class="form-control input-md" p:pattern="[0-9]{8,10}"/>
+                                                <h:inputText class="form-control input-md" value="#{usuarioControlador.cedula}" p:pattern="[0-9]{8,10}"/>
                                             </div>
                                         </div>
                                         <!-- Password input-->
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="clave">Clave</label>
                                             <div class="col-md-4">
-                                                <h:inputSecret class="form-control input-md" p:pattern="[0-9,a-z,A-Z]{10,30}"/>
+                                                <h:inputSecret value="#{usuarioControlador.clave}" class="form-control input-md" p:pattern="[0-9,a-z,A-Z]{10,30}"/>
                                             </div>
                                         </div>
                                         <!-- Button -->
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="inicioSes"></label>
                                             <div class="col-md-6">
-                                                <button name="inicioSes" class="btn btn-warning">Aceptar</button>
+                                                <h:commandButton class="btn btn-warning" value="Aceptar"/>
                                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Registrarse</button>
                                             </div>
                                         </div>
@@ -256,6 +256,7 @@
                                     </div>
                                 </c:forEach>
 
+     
                             </div>
                         </div>
                     </div>

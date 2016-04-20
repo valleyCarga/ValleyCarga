@@ -289,7 +289,7 @@ public class Factura implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Factura[ facturaID=" + facturaID + " ]";
+        return "edu.valleyCarga.controlador.Factura[ facturaID=" + facturaID + " ]";
     }
     
 }

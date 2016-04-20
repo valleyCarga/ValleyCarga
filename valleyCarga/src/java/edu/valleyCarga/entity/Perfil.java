@@ -8,14 +8,15 @@ package edu.valleyCarga.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -58,8 +59,8 @@ public class Perfil implements Serializable {
     @Size(min = 1, max = 30)
     @Column(name = "permisos")
     private String permisos;
-    @ManyToMany(mappedBy = "perfilCollection")
-    private Collection<Usuarios> usuariosCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perfilID")
+    private Collection<PerfilUsuarios> perfilUsuariosCollection;
 
     public Perfil() {
     }
@@ -108,12 +109,12 @@ public class Perfil implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Usuarios> getUsuariosCollection() {
-        return usuariosCollection;
+    public Collection<PerfilUsuarios> getPerfilUsuariosCollection() {
+        return perfilUsuariosCollection;
     }
 
-    public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
-        this.usuariosCollection = usuariosCollection;
+    public void setPerfilUsuariosCollection(Collection<PerfilUsuarios> perfilUsuariosCollection) {
+        this.perfilUsuariosCollection = perfilUsuariosCollection;
     }
 
     @Override
@@ -138,7 +139,7 @@ public class Perfil implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Perfil[ perfilID=" + perfilID + " ]";
+        return "edu.valleyCarga.controlador.Perfil[ perfilID=" + perfilID + " ]";
     }
     
 }

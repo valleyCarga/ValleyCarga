@@ -137,7 +137,7 @@ public class Bodega implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Bodega[ bodegaID=" + bodegaID + " ]";
+        return "edu.valleyCarga.controlador.Bodega[ bodegaID=" + bodegaID + " ]";
     }
     
 }

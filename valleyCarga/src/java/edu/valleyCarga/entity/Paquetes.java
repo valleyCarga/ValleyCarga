@@ -206,7 +206,7 @@ public class Paquetes implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Paquetes[ paqueteID=" + paqueteID + " ]";
+        return "edu.valleyCarga.controlador.Paquetes[ paqueteID=" + paqueteID + " ]";
     }
     
 }

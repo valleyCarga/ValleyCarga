@@ -193,7 +193,7 @@ public class Vehiculos implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Vehiculos[ vehiculoID=" + vehiculoID + " ]";
+        return "edu.valleyCarga.controlador.Vehiculos[ vehiculoID=" + vehiculoID + " ]";
     }
     
 }

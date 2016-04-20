@@ -31,8 +31,7 @@ public class SucursalesFacade extends AbstractFacade<Sucursales> {
     public SucursalesFacade() {
         super(Sucursales.class);
     }
-    
-    public  List<Sucursales> sucursalesOrdenadas(){
+     public  List<Sucursales> sucursalesOrdenadas(){
         List<Sucursales> objSucursales = new ArrayList<>();
         
         try {
@@ -44,5 +43,4 @@ public class SucursalesFacade extends AbstractFacade<Sucursales> {
         
         return objSucursales;
     }
-    
 }

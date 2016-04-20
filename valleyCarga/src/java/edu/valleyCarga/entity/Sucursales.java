@@ -205,7 +205,7 @@ public class Sucursales implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.Sucursales[ sucursalID=" + sucursalID + " ]";
+        return "edu.valleyCarga.controlador.Sucursales[ sucursalID=" + sucursalID + " ]";
     }
     
 }

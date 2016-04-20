@@ -164,7 +164,7 @@ public class HistorialPaquete implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.entity.HistorialPaquete[ historialPID=" + historialPID + " ]";
+        return "edu.valleyCarga.controlador.HistorialPaquete[ historialPID=" + historialPID + " ]";
     }
     
 }

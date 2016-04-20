@@ -31,7 +31,6 @@ public class CiudadesFacade extends AbstractFacade<Ciudades> {
     public CiudadesFacade() {
         super(Ciudades.class);
     }
-    
     public  List<Ciudades> ciudadesOrdenadas(){
         List<Ciudades> objCiudades = new ArrayList<>();
         
@@ -44,5 +43,4 @@ public class CiudadesFacade extends AbstractFacade<Ciudades> {
         
         return objCiudades;
     }
-    
 }
