@@ -33,12 +33,12 @@ public class usuarioControlador implements Serializable {
     @EJB
     private edu.valleyCarga.facade.UsuariosFacade usuariosFacade;
 
-    private int cedula;
+    private long cedula;
     private String tipoDocumento;
     private String apellido;
     private String direccion;
     private String celular;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String clave;
     private String frCiudad;
     private Usuarios logueado;
@@ -52,50 +52,212 @@ public class usuarioControlador implements Serializable {
     public usuarioControlador() {
     }
 
+    /**
+     * @return the cedula
+     */
+    public long getCedula() {
+        return cedula;
+    }
+
+    /**
+     * @param cedula the cedula to set
+     */
+    public void setCedula(long cedula) {
+        this.cedula = cedula;
+    }
+
+    /**
+     * @return the tipoDocumento
+     */
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    /**
+     * @param tipoDocumento the tipoDocumento to set
+     */
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    /**
+     * @return the direccion
+     */
+    public String getDireccion() {
+        return direccion;
+    }
+
+    /**
+     * @param direccion the direccion to set
+     */
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    /**
+     * @return the celular
+     */
+    public String getCelular() {
+        return celular;
+    }
+
+    /**
+     * @param celular the celular to set
+     */
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    /**
+     * @return the fechaNacimiento
+     */
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    /**
+     * @param fechaNacimiento the fechaNacimiento to set
+     */
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    /**
+     * @return the clave
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * @param clave the clave to set
+     */
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    /**
+     * @return the frCiudad
+     */
+    public String getFrCiudad() {
+        return frCiudad;
+    }
+
+    /**
+     * @param frCiudad the frCiudad to set
+     */
+    public void setFrCiudad(String frCiudad) {
+        this.frCiudad = frCiudad;
+    }
+
+    /**
+     * @return the logueado
+     */
+    public Usuarios getLogueado() {
+        return logueado;
+    }
+
+    /**
+     * @param logueado the logueado to set
+     */
+    public void setLogueado(Usuarios logueado) {
+        this.logueado = logueado;
+    }
+
+    /**
+     * @return the fcNombre
+     */
     public String getFcNombre() {
         return fcNombre;
     }
 
+    /**
+     * @param fcNombre the fcNombre to set
+     */
     public void setFcNombre(String fcNombre) {
         this.fcNombre = fcNombre;
     }
 
+    /**
+     * @return the fcCorreo
+     */
     public String getFcCorreo() {
         return fcCorreo;
     }
 
+    /**
+     * @param fcCorreo the fcCorreo to set
+     */
     public void setFcCorreo(String fcCorreo) {
         this.fcCorreo = fcCorreo;
     }
 
+    /**
+     * @return the fcEmpresa
+     */
     public String getFcEmpresa() {
         return fcEmpresa;
     }
 
+    /**
+     * @param fcEmpresa the fcEmpresa to set
+     */
     public void setFcEmpresa(String fcEmpresa) {
         this.fcEmpresa = fcEmpresa;
     }
 
+    /**
+     * @return the fcTelefono
+     */
     public String getFcTelefono() {
         return fcTelefono;
     }
 
+    /**
+     * @param fcTelefono the fcTelefono to set
+     */
     public void setFcTelefono(String fcTelefono) {
         this.fcTelefono = fcTelefono;
     }
 
+    /**
+     * @return the fcMensaje
+     */
     public String getFcMensaje() {
         return fcMensaje;
     }
 
+    /**
+     * @param fcMensaje the fcMensaje to set
+     */
     public void setFcMensaje(String fcMensaje) {
         this.fcMensaje = fcMensaje;
     }
 
+    /**
+     * @return the estado
+     */
     public int getEstado() {
         return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
     public void setEstado(int estado) {
         this.estado = estado;
     }
@@ -120,91 +282,24 @@ public class usuarioControlador implements Serializable {
         return "index";
     }
 
-    public void borrarEstado() {
-        estado = 0;
-    }
-
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
-    public edu.valleyCarga.facade.UsuariosFacade getUsuariosFacade() {
-        return usuariosFacade;
-    }
-
-    public void setUsuariosFacade(edu.valleyCarga.facade.UsuariosFacade usuariosFacade) {
-        this.usuariosFacade = usuariosFacade;
-    }
-
     public String registrarUsuario() {
-        //Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
         Usuarios objUsuario = new Usuarios();
 
         try {
+            objUsuario.setCedula(cedula);
             objUsuario.setTipoDocumento(tipoDocumento);
             objUsuario.setNombre(fcNombre);
             objUsuario.setApellido(apellido);
             objUsuario.setDireccion(direccion);
             objUsuario.setTelefono(fcTelefono);
             objUsuario.setCelular(celular);
-            objUsuario.setFechaNacimiento(fechaNacimiento);
+
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
+            objUsuario.setFechaNacimiento(date);
             objUsuario.setCorreo(fcCorreo);
 
             Ciudades miCiudad = new Ciudades();
             miCiudad.setCiudadID(Integer.parseInt(frCiudad));
-
             objUsuario.setClave(clave);
 
             usuariosFacade.create(objUsuario);
@@ -217,13 +312,19 @@ public class usuarioControlador implements Serializable {
         return "aaa";
     }
 
-    public String getFrCiudad() {
-        return frCiudad;
+    public void validarSesion() throws IOException {
+        FacesContext facesContexs = FacesContext.getCurrentInstance();
+
+        if (logueado != null) {
+
+        } else {
+            facesContexs.getExternalContext().redirect("../index.xhtml");
+        }
     }
 
-    public void setFrCiudad(String frCiudad) {
-        this.frCiudad = frCiudad;
-    }
+    public void borrarEstado() {
+        estado = 0;
+    } 
 
     public String iniciarsesion() {
         List<Usuarios> loguea = usuariosFacade.validarUsuario(cedula, clave);
@@ -232,29 +333,11 @@ public class usuarioControlador implements Serializable {
             estado = 3;
             return "index";
         } else {
-            logueado=loguea.get(0);
+            logueado = loguea.get(0);
             estado = 4;
             return "/Bodega/envios";
         }
 
     }
 
-    public Usuarios getLogueado() {
-        return logueado;
-    }
-
-    public void setLogueado(Usuarios logueado) {
-        this.logueado = logueado;
-    }
-
-    public void validarSesion() throws IOException {
-        FacesContext facesContexs = FacesContext.getCurrentInstance();
-       
-        if (logueado != null) {
-
-        } else {
-            facesContexs.getExternalContext().redirect("../index.xhtml");
-        }
-    }
-    
 }

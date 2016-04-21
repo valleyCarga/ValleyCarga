@@ -32,7 +32,7 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         super(Usuarios.class);
     }
     
-    public List<Usuarios> validarUsuario(int cedula,String clave){
+    public List<Usuarios> validarUsuario(long cedula,String clave){
         List<Usuarios> logueado = new ArrayList<>();
         
         try {

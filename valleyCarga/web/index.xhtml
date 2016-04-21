@@ -377,8 +377,8 @@
                                     <div class="row">
                                         <h:outputLabel>Tipo documento</h:outputLabel>
                                         <h:selectOneMenu value="#{usuarioControlador.tipoDocumento}">
-                                            <f:selectItem itemValue="#{usuarioControlador.tipoDocumento}" itemLabel="CC" />
-                                            <f:selectItem itemValue="#{usuarioControlador.tipoDocumento}" itemLabel="TI" />	   							
+                                            <f:selectItem itemValue="C.C" itemLabel="CC" />
+                                            <f:selectItem itemValue="T.I" itemLabel="TI" />	   							
                                         </h:selectOneMenu>
                                     </div>
 
@@ -415,7 +415,7 @@
 
                                     <div class="row">
                                         <h:outputLabel>Fecha de nacimiento</h:outputLabel>
-                                        <h:inputText p:type="date" class="form-control input-md" p:pattern="[0-9]{7,10}" value="#{usuarioControlador.fechaNacimiento}"/>
+                                        <h:inputText class="form-control" p:placeholder="DD/MM/AAAA" p:type="date" value="#{usuarioControlador.fechaNacimiento}"/>
                                     </div>
 
                                     <div class="row">
