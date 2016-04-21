@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package edu.valleyCarga.controlador;
+
 import com.sun.net.httpserver.HttpServer;
 import edu.valleyCarga.entity.Usuarios;
 import edu.valleyCarga.entity.Ciudades;
 import edu.valleyCarga.modelo.Mailer;
+import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -39,7 +41,7 @@ public class usuarioControlador implements Serializable {
     private Date fechaNacimiento;
     private String clave;
     private String frCiudad;
-
+    private Usuarios logueado;
     private String fcNombre;
     private String fcCorreo;
     private String fcEmpresa;
@@ -203,7 +205,6 @@ public class usuarioControlador implements Serializable {
             Ciudades miCiudad = new Ciudades();
             miCiudad.setCiudadID(Integer.parseInt(frCiudad));
 
-            
             objUsuario.setClave(clave);
 
             usuariosFacade.create(objUsuario);
@@ -223,17 +224,37 @@ public class usuarioControlador implements Serializable {
     public void setFrCiudad(String frCiudad) {
         this.frCiudad = frCiudad;
     }
-    public String iniciarsesion(){
-        List<Usuarios> logueado = usuariosFacade.validarUsuario(cedula, clave);  
-        if (logueado.isEmpty()) {
-            FacesContext facesContexs = FacesContext.getCurrentInstance();
-            ExternalContext externalContext = facesContexs.getExternalContext();
-            HttpServletRequest miSession = (HttpServletRequest) facesContexs.getExternalContext().getRequest();
-            miSession.setAttribute("usuarioL", logueado);
-            estado=3;
-        }else{
-            estado=4;
+
+    public String iniciarsesion() {
+        List<Usuarios> loguea = usuariosFacade.validarUsuario(cedula, clave);
+
+        if (loguea.isEmpty()) {
+            estado = 3;
+            return "index";
+        } else {
+            logueado=loguea.get(0);
+            estado = 4;
+            return "/Bodega/envios";
         }
-        return "envios";
+
     }
+
+    public Usuarios getLogueado() {
+        return logueado;
+    }
+
+    public void setLogueado(Usuarios logueado) {
+        this.logueado = logueado;
+    }
+
+    public void validarSesion() throws IOException {
+        FacesContext facesContexs = FacesContext.getCurrentInstance();
+       
+        if (logueado != null) {
+
+        } else {
+            facesContexs.getExternalContext().redirect("../index.xhtml");
+        }
+    }
+    
 }

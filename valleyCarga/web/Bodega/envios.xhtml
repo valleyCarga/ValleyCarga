@@ -14,6 +14,7 @@
         <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     </h:head>
+    <f:event listener="#{usuarioControlador.validarSesion()}" type="preRenderView"></f:event>
     <h:body>
         <div id="wrapper">
 
@@ -36,7 +37,7 @@
                             <i class="fa fa-cogs"></i><span class="caret"></span>
                         </button>
                         <ul data-toggle="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a><i class="fa fa-user"></i>&nbsp;Miguel Mogollon</a></li>
+                            <li><a><i class="fa fa-user"></i>&nbsp;#{usuarioControlador.logueado.nombre}</a></li>
                             <li><a href="#Misdatos" data-toggle="modal"><i class="fa fa-pencil-square-o"></i>&nbsp;Mis datos</a></li>
                             <li role="separator" class="divider"></li>
                             <li><h:link outcome="/index" p:data-toggle="modal"><i class="fa fa-power-off"></i>&nbsp;Cerrar sesion</h:link></li>
