@@ -15,7 +15,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Stateless
 public class UsuariosFacade extends AbstractFacade<Usuarios> {
@@ -32,7 +32,7 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         super(Usuarios.class);
     }
     
-    public List<Usuarios> validarUsuario(long cedula,String clave){
+    public List<Usuarios> validarUsuario(long cedula, String clave){
         List<Usuarios> logueado = new ArrayList<>();
         
         try {
@@ -44,4 +44,5 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         }
         return logueado;
     }
+    
 }

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "historial_vehiculos")
@@ -58,12 +58,12 @@ public class HistorialVehiculos implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
-    @JoinColumn(name = "cedula", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios cedula;
     @JoinColumn(name = "vehiculoID", referencedColumnName = "vehiculoID")
     @ManyToOne(optional = false)
     private Vehiculos vehiculoID;
+    @JoinColumn(name = "cedula", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios cedula;
 
     public HistorialVehiculos() {
     }
@@ -111,20 +111,20 @@ public class HistorialVehiculos implements Serializable {
         this.hora = hora;
     }
 
-    public Usuarios getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(Usuarios cedula) {
-        this.cedula = cedula;
-    }
-
     public Vehiculos getVehiculoID() {
         return vehiculoID;
     }
 
     public void setVehiculoID(Vehiculos vehiculoID) {
         this.vehiculoID = vehiculoID;
+    }
+
+    public Usuarios getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Usuarios cedula) {
+        this.cedula = cedula;
     }
 
     @Override
@@ -149,7 +149,7 @@ public class HistorialVehiculos implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.HistorialVehiculos[ historialvID=" + historialvID + " ]";
+        return "edu.valleyCarga.entity.HistorialVehiculos[ historialvID=" + historialvID + " ]";
     }
     
 }

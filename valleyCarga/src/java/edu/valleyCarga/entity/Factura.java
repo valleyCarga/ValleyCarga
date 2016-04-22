@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "factura")
@@ -85,33 +85,33 @@ public class Factura implements Serializable {
         @JoinColumn(name = "vehiculoID", referencedColumnName = "vehiculoID")})
     @ManyToMany
     private Collection<Vehiculos> vehiculosCollection;
-    @JoinColumn(name = "cajero", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios cajero;
-    @JoinColumn(name = "remitente", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios remitente;
-    @JoinColumn(name = "destinatario", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios destinatario;
-    @JoinColumn(name = "sucursal_destino", referencedColumnName = "sucursalID")
-    @ManyToOne(optional = false)
-    private Sucursales sucursalDestino;
-    @JoinColumn(name = "sucursal_origen", referencedColumnName = "sucursalID")
-    @ManyToOne(optional = false)
-    private Sucursales sucursalOrigen;
-    @JoinColumn(name = "tarifaID", referencedColumnName = "tarifaID")
-    @ManyToOne(optional = false)
-    private Tarifas tarifaID;
-    @JoinColumn(name = "ciudad_destino", referencedColumnName = "ciudadID")
-    @ManyToOne(optional = false)
-    private Ciudades ciudadDestino;
-    @JoinColumn(name = "ciudad_origen", referencedColumnName = "ciudadID")
-    @ManyToOne(optional = false)
-    private Ciudades ciudadOrigen;
     @JoinColumn(name = "paqueteID", referencedColumnName = "paqueteID")
     @ManyToOne(optional = false)
     private Paquetes paqueteID;
+    @JoinColumn(name = "ciudad_origen", referencedColumnName = "ciudadID")
+    @ManyToOne(optional = false)
+    private Ciudades ciudadOrigen;
+    @JoinColumn(name = "ciudad_destino", referencedColumnName = "ciudadID")
+    @ManyToOne(optional = false)
+    private Ciudades ciudadDestino;
+    @JoinColumn(name = "tarifaID", referencedColumnName = "tarifaID")
+    @ManyToOne(optional = false)
+    private Tarifas tarifaID;
+    @JoinColumn(name = "sucursal_origen", referencedColumnName = "sucursalID")
+    @ManyToOne(optional = false)
+    private Sucursales sucursalOrigen;
+    @JoinColumn(name = "sucursal_destino", referencedColumnName = "sucursalID")
+    @ManyToOne(optional = false)
+    private Sucursales sucursalDestino;
+    @JoinColumn(name = "destinatario", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios destinatario;
+    @JoinColumn(name = "remitente", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios remitente;
+    @JoinColumn(name = "cajero", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios cajero;
 
     public Factura() {
     }
@@ -195,60 +195,12 @@ public class Factura implements Serializable {
         this.vehiculosCollection = vehiculosCollection;
     }
 
-    public Usuarios getCajero() {
-        return cajero;
+    public Paquetes getPaqueteID() {
+        return paqueteID;
     }
 
-    public void setCajero(Usuarios cajero) {
-        this.cajero = cajero;
-    }
-
-    public Usuarios getRemitente() {
-        return remitente;
-    }
-
-    public void setRemitente(Usuarios remitente) {
-        this.remitente = remitente;
-    }
-
-    public Usuarios getDestinatario() {
-        return destinatario;
-    }
-
-    public void setDestinatario(Usuarios destinatario) {
-        this.destinatario = destinatario;
-    }
-
-    public Sucursales getSucursalDestino() {
-        return sucursalDestino;
-    }
-
-    public void setSucursalDestino(Sucursales sucursalDestino) {
-        this.sucursalDestino = sucursalDestino;
-    }
-
-    public Sucursales getSucursalOrigen() {
-        return sucursalOrigen;
-    }
-
-    public void setSucursalOrigen(Sucursales sucursalOrigen) {
-        this.sucursalOrigen = sucursalOrigen;
-    }
-
-    public Tarifas getTarifaID() {
-        return tarifaID;
-    }
-
-    public void setTarifaID(Tarifas tarifaID) {
-        this.tarifaID = tarifaID;
-    }
-
-    public Ciudades getCiudadDestino() {
-        return ciudadDestino;
-    }
-
-    public void setCiudadDestino(Ciudades ciudadDestino) {
-        this.ciudadDestino = ciudadDestino;
+    public void setPaqueteID(Paquetes paqueteID) {
+        this.paqueteID = paqueteID;
     }
 
     public Ciudades getCiudadOrigen() {
@@ -259,12 +211,60 @@ public class Factura implements Serializable {
         this.ciudadOrigen = ciudadOrigen;
     }
 
-    public Paquetes getPaqueteID() {
-        return paqueteID;
+    public Ciudades getCiudadDestino() {
+        return ciudadDestino;
     }
 
-    public void setPaqueteID(Paquetes paqueteID) {
-        this.paqueteID = paqueteID;
+    public void setCiudadDestino(Ciudades ciudadDestino) {
+        this.ciudadDestino = ciudadDestino;
+    }
+
+    public Tarifas getTarifaID() {
+        return tarifaID;
+    }
+
+    public void setTarifaID(Tarifas tarifaID) {
+        this.tarifaID = tarifaID;
+    }
+
+    public Sucursales getSucursalOrigen() {
+        return sucursalOrigen;
+    }
+
+    public void setSucursalOrigen(Sucursales sucursalOrigen) {
+        this.sucursalOrigen = sucursalOrigen;
+    }
+
+    public Sucursales getSucursalDestino() {
+        return sucursalDestino;
+    }
+
+    public void setSucursalDestino(Sucursales sucursalDestino) {
+        this.sucursalDestino = sucursalDestino;
+    }
+
+    public Usuarios getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Usuarios destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public Usuarios getRemitente() {
+        return remitente;
+    }
+
+    public void setRemitente(Usuarios remitente) {
+        this.remitente = remitente;
+    }
+
+    public Usuarios getCajero() {
+        return cajero;
+    }
+
+    public void setCajero(Usuarios cajero) {
+        this.cajero = cajero;
     }
 
     @Override
@@ -289,7 +289,7 @@ public class Factura implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Factura[ facturaID=" + facturaID + " ]";
+        return "edu.valleyCarga.entity.Factura[ facturaID=" + facturaID + " ]";
     }
     
 }

@@ -15,7 +15,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Stateless
 public class SucursalesFacade extends AbstractFacade<Sucursales> {
@@ -31,16 +31,18 @@ public class SucursalesFacade extends AbstractFacade<Sucursales> {
     public SucursalesFacade() {
         super(Sucursales.class);
     }
-     public  List<Sucursales> sucursalesOrdenadas(){
+    
+    public List<Sucursales> sucursalesOrdenadas(){
         List<Sucursales> objSucursales = new ArrayList<>();
         
         try {
-            Query p = em.createQuery("SELECT c FROM Sucursales c order by c.ciudadID");
+            Query q = em.createQuery("SELECT c FROM Sucursales c ORDER BY c.ciudadID");
             
-            objSucursales = p.getResultList();
+            objSucursales = q.getResultList();
         } catch (Exception e) {
         }
         
         return objSucursales;
     }
+    
 }

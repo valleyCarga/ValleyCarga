@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "rutas")
@@ -49,14 +49,14 @@ public class Rutas implements Serializable {
     @Size(min = 1, max = 35)
     @Column(name = "Tiempo")
     private String tiempo;
-    @JoinColumn(name = "ciudad_destino", referencedColumnName = "ciudadID")
-    @ManyToOne(optional = false)
-    private Ciudades ciudadDestino;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rutaID")
+    private Collection<Tarifas> tarifasCollection;
     @JoinColumn(name = "ciudad_origen", referencedColumnName = "ciudadID")
     @ManyToOne(optional = false)
     private Ciudades ciudadOrigen;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rutaID")
-    private Collection<Tarifas> tarifasCollection;
+    @JoinColumn(name = "ciudad_destino", referencedColumnName = "ciudadID")
+    @ManyToOne(optional = false)
+    private Ciudades ciudadDestino;
 
     public Rutas() {
     }
@@ -86,12 +86,13 @@ public class Rutas implements Serializable {
         this.tiempo = tiempo;
     }
 
-    public Ciudades getCiudadDestino() {
-        return ciudadDestino;
+    @XmlTransient
+    public Collection<Tarifas> getTarifasCollection() {
+        return tarifasCollection;
     }
 
-    public void setCiudadDestino(Ciudades ciudadDestino) {
-        this.ciudadDestino = ciudadDestino;
+    public void setTarifasCollection(Collection<Tarifas> tarifasCollection) {
+        this.tarifasCollection = tarifasCollection;
     }
 
     public Ciudades getCiudadOrigen() {
@@ -102,13 +103,12 @@ public class Rutas implements Serializable {
         this.ciudadOrigen = ciudadOrigen;
     }
 
-    @XmlTransient
-    public Collection<Tarifas> getTarifasCollection() {
-        return tarifasCollection;
+    public Ciudades getCiudadDestino() {
+        return ciudadDestino;
     }
 
-    public void setTarifasCollection(Collection<Tarifas> tarifasCollection) {
-        this.tarifasCollection = tarifasCollection;
+    public void setCiudadDestino(Ciudades ciudadDestino) {
+        this.ciudadDestino = ciudadDestino;
     }
 
     @Override
@@ -133,7 +133,7 @@ public class Rutas implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Rutas[ rutaID=" + rutaID + " ]";
+        return "edu.valleyCarga.entity.Rutas[ rutaID=" + rutaID + " ]";
     }
     
 }

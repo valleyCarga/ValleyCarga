@@ -15,7 +15,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Stateless
 public class CiudadesFacade extends AbstractFacade<Ciudades> {
@@ -31,7 +31,8 @@ public class CiudadesFacade extends AbstractFacade<Ciudades> {
     public CiudadesFacade() {
         super(Ciudades.class);
     }
-    public  List<Ciudades> ciudadesOrdenadas(){
+    
+    public List<Ciudades> ciudadesOrdenadas(){
         List<Ciudades> objCiudades = new ArrayList<>();
         
         try {
@@ -43,4 +44,5 @@ public class CiudadesFacade extends AbstractFacade<Ciudades> {
         
         return objCiudades;
     }
+    
 }

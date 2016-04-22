@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "ciudades")
@@ -50,20 +50,22 @@ public class Ciudades implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadID")
-    private Collection<Sucursales> sucursalesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadDestino")
-    private Collection<Rutas> rutasCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadOrigen")
-    private Collection<Rutas> rutasCollection1;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadDestino")
-    private Collection<Factura> facturaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadOrigen")
-    private Collection<Factura> facturaCollection1;
+    private Collection<Usuarios> usuariosCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadID")
     private Collection<Bodega> bodegaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadID")
+    private Collection<Sucursales> sucursalesCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadOrigen")
+    private Collection<Factura> facturaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadDestino")
+    private Collection<Factura> facturaCollection1;
     @JoinColumn(name = "departamentoID", referencedColumnName = "departamentoID")
     @ManyToOne(optional = false)
     private Departamentos departamentoID;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadOrigen")
+    private Collection<Rutas> rutasCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudadDestino")
+    private Collection<Rutas> rutasCollection1;
 
     public Ciudades() {
     }
@@ -94,30 +96,30 @@ public class Ciudades implements Serializable {
     }
 
     @XmlTransient
+    public Collection<Usuarios> getUsuariosCollection() {
+        return usuariosCollection;
+    }
+
+    public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
+        this.usuariosCollection = usuariosCollection;
+    }
+
+    @XmlTransient
+    public Collection<Bodega> getBodegaCollection() {
+        return bodegaCollection;
+    }
+
+    public void setBodegaCollection(Collection<Bodega> bodegaCollection) {
+        this.bodegaCollection = bodegaCollection;
+    }
+
+    @XmlTransient
     public Collection<Sucursales> getSucursalesCollection() {
         return sucursalesCollection;
     }
 
     public void setSucursalesCollection(Collection<Sucursales> sucursalesCollection) {
         this.sucursalesCollection = sucursalesCollection;
-    }
-
-    @XmlTransient
-    public Collection<Rutas> getRutasCollection() {
-        return rutasCollection;
-    }
-
-    public void setRutasCollection(Collection<Rutas> rutasCollection) {
-        this.rutasCollection = rutasCollection;
-    }
-
-    @XmlTransient
-    public Collection<Rutas> getRutasCollection1() {
-        return rutasCollection1;
-    }
-
-    public void setRutasCollection1(Collection<Rutas> rutasCollection1) {
-        this.rutasCollection1 = rutasCollection1;
     }
 
     @XmlTransient
@@ -138,21 +140,30 @@ public class Ciudades implements Serializable {
         this.facturaCollection1 = facturaCollection1;
     }
 
-    @XmlTransient
-    public Collection<Bodega> getBodegaCollection() {
-        return bodegaCollection;
-    }
-
-    public void setBodegaCollection(Collection<Bodega> bodegaCollection) {
-        this.bodegaCollection = bodegaCollection;
-    }
-
     public Departamentos getDepartamentoID() {
         return departamentoID;
     }
 
     public void setDepartamentoID(Departamentos departamentoID) {
         this.departamentoID = departamentoID;
+    }
+
+    @XmlTransient
+    public Collection<Rutas> getRutasCollection() {
+        return rutasCollection;
+    }
+
+    public void setRutasCollection(Collection<Rutas> rutasCollection) {
+        this.rutasCollection = rutasCollection;
+    }
+
+    @XmlTransient
+    public Collection<Rutas> getRutasCollection1() {
+        return rutasCollection1;
+    }
+
+    public void setRutasCollection1(Collection<Rutas> rutasCollection1) {
+        this.rutasCollection1 = rutasCollection1;
     }
 
     @Override
@@ -177,7 +188,7 @@ public class Ciudades implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Ciudades[ ciudadID=" + ciudadID + " ]";
+        return "edu.valleyCarga.entity.Ciudades[ ciudadID=" + ciudadID + " ]";
     }
     
 }

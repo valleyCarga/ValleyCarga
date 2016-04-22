@@ -97,7 +97,25 @@
         <div id="tf-about">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <c:if test="#{usuarioControlador.estado == 1}">
+                            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                                <strong>Usuario registrado!</strong> Usuario registrado exitosamente.
+                            </div>
+                        </c:if>
+
+                        <c:if test="#{usuarioControlador.estado == 2}">
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                                <strong>Error fatal!</strong> Error al registrar el usuario.
+                            </div>
+                        </c:if>
+                    </div>
                     <div class="col-md-6">
                         <div class="about-text">
                             <div class="section-title">
@@ -256,7 +274,7 @@
                                     </div>
                                 </c:forEach>
 
-     
+
                             </div>
                         </div>
                     </div>
@@ -427,7 +445,7 @@
                                         <h:outputLabel>Ciudad</h:outputLabel>
                                         <h:selectOneMenu value="#{usuarioControlador.frCiudad}">
                                             <c:forEach items="#{ciudadesControlador.ciudadesOrdenadas()}" var="ciudades">
-                                                <f:selectItem itemLabel="#{ciudades.nombre}" itemValue="#{ciudades.ciudadID}"/>
+                                                <f:selectItem itemLabel="#{ciudades.ciudadID}" itemValue="#{ciudades.ciudadID}"/>
                                             </c:forEach>
                                         </h:selectOneMenu>
                                     </div>

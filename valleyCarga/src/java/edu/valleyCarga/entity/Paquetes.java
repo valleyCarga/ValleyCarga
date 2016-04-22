@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "paquetes")
@@ -78,12 +78,12 @@ public class Paquetes implements Serializable {
     @Column(name = "estado")
     private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paqueteID")
-    private Collection<Factura> facturaCollection;
+    private Collection<HistorialPaquete> historialPaqueteCollection;
     @JoinColumn(name = "vehiculoID", referencedColumnName = "vehiculoID")
     @ManyToOne(optional = false)
     private Vehiculos vehiculoID;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paqueteID")
-    private Collection<HistorialPaquete> historialPaqueteCollection;
+    private Collection<Factura> facturaCollection;
 
     public Paquetes() {
     }
@@ -159,12 +159,12 @@ public class Paquetes implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Factura> getFacturaCollection() {
-        return facturaCollection;
+    public Collection<HistorialPaquete> getHistorialPaqueteCollection() {
+        return historialPaqueteCollection;
     }
 
-    public void setFacturaCollection(Collection<Factura> facturaCollection) {
-        this.facturaCollection = facturaCollection;
+    public void setHistorialPaqueteCollection(Collection<HistorialPaquete> historialPaqueteCollection) {
+        this.historialPaqueteCollection = historialPaqueteCollection;
     }
 
     public Vehiculos getVehiculoID() {
@@ -176,12 +176,12 @@ public class Paquetes implements Serializable {
     }
 
     @XmlTransient
-    public Collection<HistorialPaquete> getHistorialPaqueteCollection() {
-        return historialPaqueteCollection;
+    public Collection<Factura> getFacturaCollection() {
+        return facturaCollection;
     }
 
-    public void setHistorialPaqueteCollection(Collection<HistorialPaquete> historialPaqueteCollection) {
-        this.historialPaqueteCollection = historialPaqueteCollection;
+    public void setFacturaCollection(Collection<Factura> facturaCollection) {
+        this.facturaCollection = facturaCollection;
     }
 
     @Override
@@ -206,7 +206,7 @@ public class Paquetes implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Paquetes[ paqueteID=" + paqueteID + " ]";
+        return "edu.valleyCarga.entity.Paquetes[ paqueteID=" + paqueteID + " ]";
     }
     
 }

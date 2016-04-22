@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "sucursales")
@@ -79,9 +79,9 @@ public class Sucursales implements Serializable {
     @JoinColumn(name = "ciudadID", referencedColumnName = "ciudadID")
     @ManyToOne(optional = false)
     private Ciudades ciudadID;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursalDestino")
-    private Collection<Factura> facturaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursalOrigen")
+    private Collection<Factura> facturaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sucursalDestino")
     private Collection<Factura> facturaCollection1;
 
     public Sucursales() {
@@ -205,7 +205,7 @@ public class Sucursales implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Sucursales[ sucursalID=" + sucursalID + " ]";
+        return "edu.valleyCarga.entity.Sucursales[ sucursalID=" + sucursalID + " ]";
     }
     
 }

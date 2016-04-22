@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "perfil")
@@ -139,7 +139,7 @@ public class Perfil implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Perfil[ perfilID=" + perfilID + " ]";
+        return "edu.valleyCarga.entity.Perfil[ perfilID=" + perfilID + " ]";
     }
     
 }

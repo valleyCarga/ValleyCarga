@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "mensajes")
@@ -52,12 +52,12 @@ public class Mensajes implements Serializable {
     @Size(min = 1, max = 35)
     @Column(name = "estado_mensaje")
     private String estadoMensaje;
-    @JoinColumn(name = "destinatario", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios destinatario;
     @JoinColumn(name = "remitente", referencedColumnName = "cedula")
     @ManyToOne(optional = false)
     private Usuarios remitente;
+    @JoinColumn(name = "destinatario", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios destinatario;
 
     public Mensajes() {
     }
@@ -96,20 +96,20 @@ public class Mensajes implements Serializable {
         this.estadoMensaje = estadoMensaje;
     }
 
-    public Usuarios getDestinatario() {
-        return destinatario;
-    }
-
-    public void setDestinatario(Usuarios destinatario) {
-        this.destinatario = destinatario;
-    }
-
     public Usuarios getRemitente() {
         return remitente;
     }
 
     public void setRemitente(Usuarios remitente) {
         this.remitente = remitente;
+    }
+
+    public Usuarios getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Usuarios destinatario) {
+        this.destinatario = destinatario;
     }
 
     @Override
@@ -134,7 +134,7 @@ public class Mensajes implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Mensajes[ mensajeID=" + mensajeID + " ]";
+        return "edu.valleyCarga.entity.Mensajes[ mensajeID=" + mensajeID + " ]";
     }
     
 }

@@ -40,7 +40,7 @@ public class usuarioControlador implements Serializable {
     private String celular;
     private String fechaNacimiento;
     private String clave;
-    private String frCiudad;
+    private int frCiudad;
     private Usuarios logueado;
     private String fcNombre;
     private String fcCorreo;
@@ -153,14 +153,14 @@ public class usuarioControlador implements Serializable {
     /**
      * @return the frCiudad
      */
-    public String getFrCiudad() {
+    public int getFrCiudad() {
         return frCiudad;
     }
 
     /**
      * @param frCiudad the frCiudad to set
      */
-    public void setFrCiudad(String frCiudad) {
+    public void setFrCiudad(int frCiudad) {
         this.frCiudad = frCiudad;
     }
 
@@ -282,6 +282,10 @@ public class usuarioControlador implements Serializable {
         return "index";
     }
 
+    public void borrarEstado() {
+        estado = 0;
+    }
+
     public String registrarUsuario() {
         Usuarios objUsuario = new Usuarios();
 
@@ -297,10 +301,11 @@ public class usuarioControlador implements Serializable {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
             objUsuario.setFechaNacimiento(date);
             objUsuario.setCorreo(fcCorreo);
-
-            Ciudades miCiudad = new Ciudades();
-            miCiudad.setCiudadID(Integer.parseInt(frCiudad));
             objUsuario.setClave(clave);
+            
+            Ciudades miCiudad = new Ciudades();
+            miCiudad.setCiudadID(frCiudad);
+            objUsuario.setCiudadID(miCiudad);
 
             usuariosFacade.create(objUsuario);
 
@@ -309,7 +314,7 @@ public class usuarioControlador implements Serializable {
             estado = 2;
         }
 
-        return "aaa";
+        return "index";
     }
 
     public void validarSesion() throws IOException {
@@ -321,10 +326,6 @@ public class usuarioControlador implements Serializable {
             facesContexs.getExternalContext().redirect("../index.xhtml");
         }
     }
-
-    public void borrarEstado() {
-        estado = 0;
-    } 
 
     public String iniciarsesion() {
         List<Usuarios> loguea = usuariosFacade.validarUsuario(cedula, clave);

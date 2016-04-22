@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "historial_paquete")
@@ -64,12 +64,12 @@ public class HistorialPaquete implements Serializable {
     @Size(min = 1, max = 30)
     @Column(name = "estado_nuevo")
     private String estadoNuevo;
-    @JoinColumn(name = "usuario_a", referencedColumnName = "cedula")
-    @ManyToOne(optional = false)
-    private Usuarios usuarioA;
     @JoinColumn(name = "paqueteID", referencedColumnName = "paqueteID")
     @ManyToOne(optional = false)
     private Paquetes paqueteID;
+    @JoinColumn(name = "usuario_a", referencedColumnName = "cedula")
+    @ManyToOne(optional = false)
+    private Usuarios usuarioA;
 
     public HistorialPaquete() {
     }
@@ -126,20 +126,20 @@ public class HistorialPaquete implements Serializable {
         this.estadoNuevo = estadoNuevo;
     }
 
-    public Usuarios getUsuarioA() {
-        return usuarioA;
-    }
-
-    public void setUsuarioA(Usuarios usuarioA) {
-        this.usuarioA = usuarioA;
-    }
-
     public Paquetes getPaqueteID() {
         return paqueteID;
     }
 
     public void setPaqueteID(Paquetes paqueteID) {
         this.paqueteID = paqueteID;
+    }
+
+    public Usuarios getUsuarioA() {
+        return usuarioA;
+    }
+
+    public void setUsuarioA(Usuarios usuarioA) {
+        this.usuarioA = usuarioA;
     }
 
     @Override
@@ -164,7 +164,7 @@ public class HistorialPaquete implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.HistorialPaquete[ historialPID=" + historialPID + " ]";
+        return "edu.valleyCarga.entity.HistorialPaquete[ historialPID=" + historialPID + " ]";
     }
     
 }

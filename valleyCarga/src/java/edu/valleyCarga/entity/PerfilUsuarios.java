@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "perfil_usuarios")
@@ -37,12 +37,12 @@ public class PerfilUsuarios implements Serializable {
     @Basic(optional = false)
     @Column(name = "perfil_usuariosID")
     private Integer perfilusuariosID;
-    @JoinColumn(name = "perfilID", referencedColumnName = "perfilID")
-    @ManyToOne(optional = false)
-    private Perfil perfilID;
     @JoinColumn(name = "cedula", referencedColumnName = "cedula")
     @ManyToOne(optional = false)
     private Usuarios cedula;
+    @JoinColumn(name = "perfilID", referencedColumnName = "perfilID")
+    @ManyToOne(optional = false)
+    private Perfil perfilID;
 
     public PerfilUsuarios() {
     }
@@ -59,20 +59,20 @@ public class PerfilUsuarios implements Serializable {
         this.perfilusuariosID = perfilusuariosID;
     }
 
-    public Perfil getPerfilID() {
-        return perfilID;
-    }
-
-    public void setPerfilID(Perfil perfilID) {
-        this.perfilID = perfilID;
-    }
-
     public Usuarios getCedula() {
         return cedula;
     }
 
     public void setCedula(Usuarios cedula) {
         this.cedula = cedula;
+    }
+
+    public Perfil getPerfilID() {
+        return perfilID;
+    }
+
+    public void setPerfilID(Perfil perfilID) {
+        this.perfilID = perfilID;
     }
 
     @Override
@@ -97,7 +97,7 @@ public class PerfilUsuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.PerfilUsuarios[ perfilusuariosID=" + perfilusuariosID + " ]";
+        return "edu.valleyCarga.entity.PerfilUsuarios[ perfilusuariosID=" + perfilusuariosID + " ]";
     }
     
 }

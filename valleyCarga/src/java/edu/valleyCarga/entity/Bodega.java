@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PRACTICAS
+ * @author Marlon
  */
 @Entity
 @Table(name = "bodega")
@@ -137,7 +137,7 @@ public class Bodega implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.valleyCarga.controlador.Bodega[ bodegaID=" + bodegaID + " ]";
+        return "edu.valleyCarga.entity.Bodega[ bodegaID=" + bodegaID + " ]";
     }
     
 }
