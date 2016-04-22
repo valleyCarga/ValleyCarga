@@ -394,7 +394,7 @@
                                 <div class="col-md-10">
                                     <div class="row">
                                         <h:outputLabel>Tipo documento</h:outputLabel>
-                                        <h:selectOneMenu value="#{usuarioControlador.tipoDocumento}">
+                                        <h:selectOneMenu value="#{usuarioControlador.tipoDocumento}" class="form-control input-md">
                                             <f:selectItem itemValue="C.C" itemLabel="CC" />
                                             <f:selectItem itemValue="T.I" itemLabel="TI" />	   							
                                         </h:selectOneMenu>
@@ -443,9 +443,9 @@
 
                                     <div class="row">
                                         <h:outputLabel>Ciudad</h:outputLabel>
-                                        <h:selectOneMenu value="#{usuarioControlador.frCiudad}">
+                                        <h:selectOneMenu value="#{usuarioControlador.frCiudad}" class="form-control input-md">
                                             <c:forEach items="#{ciudadesControlador.ciudadesOrdenadas()}" var="ciudades">
-                                                <f:selectItem itemLabel="#{ciudades.ciudadID}" itemValue="#{ciudades.ciudadID}"/>
+                                                <f:selectItem itemLabel="#{ciudades.nombre}" itemValue="#{ciudades.ciudadID}"/>
                                             </c:forEach>
                                         </h:selectOneMenu>
                                     </div>
